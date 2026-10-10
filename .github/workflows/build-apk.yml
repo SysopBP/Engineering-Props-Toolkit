@@ -21,8 +21,14 @@ jobs:
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0"
+      - name: Verify command timeout and output bounds
+        run: |
+          mkdir -p /tmp/engineering-check
+          javac -d /tmp/engineering-check app/src/main/java/com/sysopbp/engineeringprops/CommandRunner.java app/src/main/java/com/sysopbp/engineeringprops/ToolkitConfig.java ci/CommandRunnerCheck.java ci/ToolkitConfigCheck.java
+          java -cp /tmp/engineering-check CommandRunnerCheck
+          java -cp /tmp/engineering-check ToolkitConfigCheck
       - name: Build debug APK
-        run: gradle :app:assembleDebug --no-daemon --stacktrace
+        run: gradle :app:lintDebug :app:assembleDebug --no-daemon --stacktrace
       - uses: actions/upload-artifact@v4
         if: success()
         with:

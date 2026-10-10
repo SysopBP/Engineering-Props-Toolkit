@@ -1,3 +1,3 @@
 plugins { id 'com.android.application' }
 android { namespace 'com.sysopbp.engineeringprops'; compileSdk 36
- defaultConfig { applicationId 'com.sysopbp.engineeringprops'; minSdk 29; targetSdk 35; versionCode 5; versionName '0.5-preview' } }
+ defaultConfig { applicationId 'com.sysopbp.engineeringprops'; minSdk 29; targetSdk 35; versionCode 6; versionName '0.6-preview' } }
