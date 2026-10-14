@@ -47,3 +47,7 @@ gradle :app:lintDebug :app:assembleDebug
 ```
 
 The UI and firmware behavior still need device testing. The companion retains package `com.sysopbp.engineeringprops` so it can update the previous build.
+
+## Source rights
+
+See [RIGHTS.md](RIGHTS.md). This repository currently grants no open-source license for original code; third-party rights remain applicable.
